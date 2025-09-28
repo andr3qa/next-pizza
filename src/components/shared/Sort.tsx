@@ -1,7 +1,14 @@
 import { cn } from '@/lib/utils';
 import { SlidersHorizontal } from 'lucide-react';
 import React from 'react';
-import { Button } from '../ui';
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from '../ui';
+import { sortOptions } from '@/constants/sortOptions';
 
 interface Props {
   className?: string;
@@ -16,9 +23,23 @@ export const Sort: React.FC<Props> = ({ className }) => {
     >
       <SlidersHorizontal size={12} />
       <span>Сортировка:</span>
-      <Button className="h-auto p-0" variant={'link'}>
-        По популярности
-      </Button>
+
+      <Select defaultValue={sortOptions[0].name}>
+        <SelectTrigger className="text-primary cursor-pointer border-0 shadow-none [&>svg]:hidden">
+          <SelectValue />
+        </SelectTrigger>
+        <SelectContent>
+          {sortOptions.map((option) => (
+            <SelectItem
+              key={option.name}
+              className="cursor-pointer"
+              value={option.name}
+            >
+              {option.name}
+            </SelectItem>
+          ))}
+        </SelectContent>
+      </Select>
     </div>
   );
 };
