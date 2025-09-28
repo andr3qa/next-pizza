@@ -11,7 +11,7 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ className }) => {
   return (
-    <header className={cn('py-11', className)}>
+    <header className={cn('border-secondary border py-11', className)}>
       <Container className="sm:justify-items-normal grid grid-cols-1 items-center justify-items-center gap-5 sm:grid-cols-2 md:grid-cols-[auto_1fr_auto] md:gap-16">
         <div className="flex gap-4">
           <Image src="/logo.svg" alt="Logo" width={32} height={32} />
@@ -30,7 +30,7 @@ export const Header: React.FC<Props> = ({ className }) => {
           placeholder="Поиск..."
         />
         <div className="row-start-2 row-end-3 flex items-center gap-2 sm:col-start-2 sm:col-end-3 sm:row-start-1 sm:row-end-2 sm:justify-end md:col-auto md:row-auto">
-          <Button className="cursor-pointer gap-1" variant={'outline'}>
+          <Button className="gap-1" variant={'outline'}>
             <User />
             <span>Войти</span>
           </Button>

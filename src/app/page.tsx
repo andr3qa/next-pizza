@@ -1,3 +1,9 @@
+import { Container, TopBar } from '@/components/shared';
+
 export default function Home() {
-  return <></>;
+  return (
+    <Container>
+      <TopBar />
+    </Container>
+  );
 }

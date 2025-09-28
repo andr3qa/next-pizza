@@ -22,10 +22,8 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${nunito.variable} antialiased`}>
-        <div className="min-h-screen">
-          <Header />
-          {children}
-        </div>
+        <Header />
+        <main className="py-10">{children}</main>
       </body>
     </html>
   );
