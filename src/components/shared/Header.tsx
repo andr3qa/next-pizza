@@ -12,8 +12,8 @@ interface Props {
 export const Header: React.FC<Props> = ({ className }) => {
   return (
     <header className={cn('py-11', className)}>
-      <Container className="grid grid-cols-[auto_1fr_auto] items-center gap-x-16">
-        <div className="flex items-start gap-4">
+      <Container className="sm:justify-items-normal grid grid-cols-1 items-center justify-items-center gap-5 sm:grid-cols-2 md:grid-cols-[auto_1fr_auto] md:gap-16">
+        <div className="flex gap-4">
           <Image src="/logo.svg" alt="Logo" width={32} height={32} />
           <div>
             <p className="text-2xl/5 font-black uppercase text-black">
@@ -24,13 +24,17 @@ export const Header: React.FC<Props> = ({ className }) => {
             </p>
           </div>
         </div>
-        <Input type="text" placeholder="Поиск..." />
-        <div className="flex items-center gap-2 justify-self-end">
-          <Button className="gap-1" variant={'outline'}>
+        <Input
+          className="col-span-2 md:col-auto"
+          type="text"
+          placeholder="Поиск..."
+        />
+        <div className="row-start-2 row-end-3 flex items-center gap-2 sm:col-start-2 sm:col-end-3 sm:row-start-1 sm:row-end-2 sm:justify-end md:col-auto md:row-auto">
+          <Button className="cursor-pointer gap-1" variant={'outline'}>
             <User />
             <span>Войти</span>
           </Button>
-          <Button>
+          <Button className="cursor-pointer">
             <span>520 ₽</span>
             <div className="w-0.25 h-4 bg-white/30"></div>
             <div className="flex items-center gap-1">
