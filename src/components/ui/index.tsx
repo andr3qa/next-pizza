@@ -19,3 +19,4 @@ export { Popover } from './popover';
 export { PopoverTrigger } from './popover';
 export { PopoverContent } from './popover';
 export { PopoverAnchor } from './popover';
+export { Label } from './label';
