@@ -1,6 +1,7 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { Button, Checkbox, Input, Label } from '../ui';
+import { Button, Checkbox, Label } from '../ui';
+import { FilterPrice } from './FilterPrice';
 
 interface Props {
   className?: string;
@@ -21,11 +22,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
         </div>
       </fieldset>
       <fieldset className="mt-7.5 flex flex-col gap-3.5">
-        <legend>Цена от и до:</legend>
-        <div className="mt-3.5 flex items-center space-x-2">
-          <Input className="w-18" type="text" placeholder="0" />
-          <Input className="w-18" type="text" placeholder="5000" />
-        </div>
+        <legend>Цена:</legend>
+        <FilterPrice className="mt-3.5" />
       </fieldset>
       <fieldset className="mt-7.5 flex flex-col gap-3.5">
         <legend>Ингридиенты:</legend>
