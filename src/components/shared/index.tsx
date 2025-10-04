@@ -7,3 +7,4 @@ export { Filters } from './Filters';
 export { Product } from './Product';
 export { FilterPrice } from './FilterPrice';
 export { NotFound } from './NotFound';
+export { Lock } from './Lock';
