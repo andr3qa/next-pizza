@@ -11,9 +11,12 @@ interface Props {
 export const Lock: React.FC<Props> = ({ className }) => {
   return (
     <div
-      className={cn('flex items-center justify-center gap-12 pt-20', className)}
+      className={cn(
+        'flex flex-col items-center justify-center gap-12 pt-5 md:flex-row md:pt-20',
+        className
+      )}
     >
-      <div className="max-w-100">
+      <div className="max-w-100 text-center md:text-left">
         <h1 className="text-4xl font-extrabold text-black">Доступ запрещён</h1>
         <p className="mt-4 text-sm text-gray-400">
           Данную страницу могут просматривать только авторизованные пользователи
@@ -24,7 +27,13 @@ export const Lock: React.FC<Props> = ({ className }) => {
           </Link>
         </Button>
       </div>
-      <Image src="/lock.svg" alt="404" width={340} height={346} />
+      <Image
+        className="order-first w-52 md:order-last md:w-auto"
+        src="/lock.svg"
+        alt="404"
+        width={340}
+        height={346}
+      />
     </div>
   );
 };

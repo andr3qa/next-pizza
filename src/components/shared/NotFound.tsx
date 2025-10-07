@@ -11,9 +11,12 @@ interface Props {
 export const NotFound: React.FC<Props> = ({ className }) => {
   return (
     <div
-      className={cn('flex items-center justify-center gap-12 pt-20', className)}
+      className={cn(
+        'flex flex-col items-center justify-center gap-12 pt-5 md:flex-row md:pt-20',
+        className
+      )}
     >
-      <div className="max-w-100">
+      <div className="max-w-100 text-center md:text-left">
         <h1 className="text-4xl font-extrabold text-black">
           Страница не найдена
         </h1>
@@ -26,7 +29,13 @@ export const NotFound: React.FC<Props> = ({ className }) => {
           </Link>
         </Button>
       </div>
-      <Image src="/notfound.svg" alt="404" width={340} height={346} />
+      <Image
+        className="order-first w-52 md:order-last md:w-auto"
+        src="/notfound.svg"
+        alt="404"
+        width={340}
+        height={346}
+      />
     </div>
   );
 };
