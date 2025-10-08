@@ -2,8 +2,10 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 import { Container } from './Container';
 import Image from 'next/image';
-import { Button, Input } from '../ui';
+import { Button } from '../ui';
 import { ShoppingCart, User } from 'lucide-react';
+import { SearchInput } from './SearchInput';
+import Link from 'next/link';
 
 interface Props {
   className?: string;
@@ -13,7 +15,7 @@ export const Header: React.FC<Props> = ({ className }) => {
   return (
     <header className={cn('border-secondary border py-11', className)}>
       <Container className="sm:justify-items-normal grid grid-cols-1 items-center justify-items-center gap-5 sm:grid-cols-2 md:grid-cols-[auto_1fr_auto] md:gap-16">
-        <div className="flex gap-4">
+        <Link href="/" className="flex gap-4">
           <Image src="/logo.svg" alt="Logo" width={32} height={32} />
           <div>
             <p className="text-2xl/5 font-black uppercase text-black">
@@ -23,12 +25,8 @@ export const Header: React.FC<Props> = ({ className }) => {
               вкусней уже некуда
             </p>
           </div>
-        </div>
-        <Input
-          className="col-span-2 md:col-auto"
-          type="text"
-          placeholder="Поиск..."
-        />
+        </Link>
+        <SearchInput className="col-span-2 md:col-auto" />
         <div className="row-start-2 row-end-3 flex items-center gap-2 sm:col-start-2 sm:col-end-3 sm:row-start-1 sm:row-end-2 sm:justify-end md:col-auto md:row-auto">
           <Button className="gap-1" variant={'outline'}>
             <User />
