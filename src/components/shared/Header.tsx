@@ -16,7 +16,13 @@ export const Header: React.FC<Props> = ({ className }) => {
     <header className={cn('border-secondary border py-11', className)}>
       <Container className="sm:justify-items-normal grid grid-cols-1 items-center justify-items-center gap-5 sm:grid-cols-2 md:grid-cols-[auto_1fr_auto] md:gap-16">
         <Link href="/" className="flex gap-4">
-          <Image src="/logo.svg" alt="Logo" width={32} height={32} />
+          <Image
+            className="h-8 w-8"
+            src="/logo.svg"
+            alt="Logo"
+            width={32}
+            height={32}
+          />
           <div>
             <p className="text-2xl/5 font-black uppercase text-black">
               Next-Pizza

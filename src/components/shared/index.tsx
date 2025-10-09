@@ -9,3 +9,4 @@ export { FilterPrice } from './FilterPrice';
 export { NotFound } from './NotFound';
 export { Lock } from './Lock';
 export { SearchInput } from './SearchInput';
+export { FilterCheckbox } from './FilterCheckbox';

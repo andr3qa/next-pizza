@@ -1,8 +1,8 @@
-import { categorySeed } from './constants/categorySeed';
+import { categorySeed } from './seeds/categorySeed';
 import prisma from './prisma';
 import { hashSync } from 'bcrypt';
-import { ingredientsSeed } from './constants/ingredientsSeed';
-import { productsSeed } from './constants/productsSeed';
+import { ingredientsSeed } from './seeds/ingredientsSeed';
+import { productsSeed } from './seeds/productsSeed';
 import { Prisma } from '../generated/prisma';
 
 const randomDecimalNumber = (min: number, max: number) => {

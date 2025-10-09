@@ -12,6 +12,7 @@ import { Product } from '../../../generated/prisma';
 interface Props {
   className?: string;
 }
+
 export const SearchInput: React.FC<Props> = ({ className }) => {
   const [focused, setFocused] = React.useState(false);
   const [query, setQuery] = React.useState('');
@@ -23,8 +24,13 @@ export const SearchInput: React.FC<Props> = ({ className }) => {
   });
 
   useDebounce(
-    () => {
-      Api.products.search(query).then((data) => setProducts(data));
+    async () => {
+      try {
+        const response = await Api.products.search(query);
+        setProducts(response);
+      } catch (error) {
+        console.error(error);
+      }
     },
     250,
     [query]
