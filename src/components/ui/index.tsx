@@ -20,3 +20,5 @@ export { PopoverTrigger } from './popover';
 export { PopoverContent } from './popover';
 export { PopoverAnchor } from './popover';
 export { Label } from './label';
+export { ScrollArea } from './scroll-area';
+export { ScrollBar } from './scroll-area';

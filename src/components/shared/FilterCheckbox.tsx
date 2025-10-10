@@ -17,7 +17,9 @@ export const FilterCheckbox: React.FC<Props> = ({
   return (
     <div className={cn('flex items-center space-x-2', className)}>
       <Checkbox id={id} name={name} />
-      <Label htmlFor={id}>{label}</Label>
+      <Label className="leading-5" htmlFor={id}>
+        {label}
+      </Label>
     </div>
   );
 };
