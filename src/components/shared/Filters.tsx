@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { Button, Input, ScrollArea, Skeleton } from '../ui';
+import { Button, ScrollArea, Skeleton } from '../ui';
 import { FilterCheckbox } from './FilterCheckbox';
 import { FilterPrice } from './FilterPrice';
 import { Api } from '../../../services/api-client';
@@ -39,6 +39,12 @@ export const Filters: React.FC<Props> = ({ className }) => {
         <legend className="mb-3.5">Тип теста:</legend>
         <FilterCheckbox id="traditional" name="dough" label="Традиционное" />
         <FilterCheckbox id="thin" name="dough" label="Тонкое" />
+      </fieldset>
+      <fieldset className="mt-7.5 flex flex-col gap-3.5">
+        <legend className="mb-3.5">Размер:</legend>
+        <FilterCheckbox id="20" name="size" label="20 см." />
+        <FilterCheckbox id="30" name="size" label="30 см." />
+        <FilterCheckbox id="40" name="size" label="40 см." />
       </fieldset>
       <fieldset className="mt-7.5 flex flex-col gap-3.5">
         <legend>Цена:</legend>

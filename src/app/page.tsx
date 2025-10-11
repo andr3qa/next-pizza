@@ -4,9 +4,9 @@ export default function Home() {
   return (
     <Container>
       <TopBar />
-      <div className="gap-13 mt-9 grid grid-cols-1 md:grid-cols-[auto_1fr]">
+      <div className="gap-13 mt-9 grid grid-cols-1 items-start md:grid-cols-[auto_1fr]">
         <Filters />
-        <div className="mt-10 grid grid-cols-1 justify-items-center gap-12 md:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-10 grid grid-cols-1 content-center justify-items-center gap-12 md:grid-cols-2 lg:grid-cols-3">
           <Product />
           <Product />
           <Product />
