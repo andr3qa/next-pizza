@@ -20,7 +20,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
     async function fetchIngredients() {
       try {
         setLoading(true);
-        const response = await Api.ingredients.ingredients();
+        const response = await Api.ingredients.getAll();
         setIngredients(response);
       } catch (error) {
         console.error(error);
