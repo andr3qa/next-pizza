@@ -1,28 +1,54 @@
 'use client';
 
 import { cn } from '@/lib/utils';
-import React, { ChangeEvent } from 'react';
+import React from 'react';
 import { Button, Input, ScrollArea, Skeleton } from '../ui';
 import { FilterCheckbox } from './FilterCheckbox';
 import { Api } from '../../../services/api-client';
 import { Ingredient } from '../../../generated/prisma';
 import { useSet } from 'react-use';
+import qs from 'qs';
+import { useRouter, useSearchParams } from 'next/navigation';
 
 interface Props {
   className?: string;
 }
+
+interface PriceProps {
+  priceFrom: string;
+  priceTo: string;
+}
+
+interface QueryFilters extends PriceProps {
+  dough: string[];
+  size: string[];
+  ingredients: string[];
+}
+
 export const Filters: React.FC<Props> = ({ className }) => {
+  const searchParams = useSearchParams() as unknown as Map<
+    keyof QueryFilters,
+    string
+  >;
   const [ingredients, setIngredients] = React.useState<Ingredient[]>([]);
   const [showMoreIngredients, setShowMoreIngredients] = React.useState(false);
   const [loading, setLoading] = React.useState(false);
 
-  const [selectDough, { toggle: toggleDough }] = useSet(new Set<string>([]));
-  const [selectSize, { toggle: toggleSize }] = useSet(new Set<string>([]));
-  const [selectIngredients, { toggle: toggleIngredients }] = useSet(
-    new Set<string>([])
+  const [selectDough, { toggle: toggleDough }] = useSet(
+    new Set<string>(searchParams.get('dough')?.split(',') || [])
   );
-  const [priceFrom, setPriceFrom] = React.useState<string>('');
-  const [priceTo, setPriceTo] = React.useState<string>('');
+  const [selectSize, { toggle: toggleSize }] = useSet(
+    new Set<string>(searchParams.get('size')?.split(',') || [])
+  );
+  const [selectIngredients, { toggle: toggleIngredients }] = useSet(
+    new Set<string>(searchParams.get('ingredients')?.split(',') || [])
+  );
+  const [prices, setPrices] = React.useState<PriceProps>({
+    priceFrom: searchParams.get('priceFrom') || '',
+    priceTo: searchParams.get('priceTo') || '',
+  });
+
+  const router = useRouter();
 
   React.useEffect(() => {
     async function fetchIngredients() {
@@ -40,29 +66,37 @@ export const Filters: React.FC<Props> = ({ className }) => {
     fetchIngredients();
   }, []);
 
-  const handleInputChange = (
-    e: ChangeEvent<HTMLInputElement>,
-    setValue: React.Dispatch<React.SetStateAction<string>>
-  ) => {
-    const value = e.target.value;
-
+  const handlePriceChange = (field: keyof PriceProps, value: string) => {
     if (
       value === '' ||
       (/^\d+$/.test(value) && Number(value) >= 0 && Number(value) <= 5000)
     ) {
-      setValue(value);
+      setPrices((prev) => ({
+        ...prev,
+        [field]: value,
+      }));
     }
   };
 
-  // React.useEffect(() => {
-  //   console.log({
-  //     selectDough,
-  //     selectSize,
-  //     selectIngredients,
-  //     priceTo,
-  //     priceFrom,
-  //   });
-  // }, [selectDough, selectSize, selectIngredients, priceTo, priceFrom]);
+  React.useEffect(() => {
+    const filter: Record<string, unknown> = {
+      dough: Array.from(selectDough),
+      size: Array.from(selectSize),
+      ingredients: Array.from(selectIngredients),
+    };
+
+    if (prices.priceFrom) {
+      filter.priceFrom = prices.priceFrom;
+    }
+
+    if (prices.priceTo) {
+      filter.priceTo = prices.priceTo;
+    }
+
+    const query = qs.stringify(filter, { arrayFormat: 'comma' });
+
+    router.push(`?${query}`, { scroll: false });
+  }, [selectDough, selectSize, selectIngredients, prices, router]);
 
   return (
     <aside className={cn('w-50', className)}>
@@ -110,12 +144,7 @@ export const Filters: React.FC<Props> = ({ className }) => {
       </fieldset>
       <fieldset className="mt-7.5 flex flex-col gap-3.5">
         <legend>Цена:</legend>
-        <div
-          className={cn(
-            'grid grid-cols-[auto_auto] items-center gap-2',
-            className
-          )}
-        >
+        <div className="grid grid-cols-[auto_auto] items-center gap-2">
           <span>от</span>
           <Input
             className="w-20"
@@ -123,8 +152,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
             min={0}
             max={5000}
             placeholder="0"
-            value={priceFrom}
-            onChange={(e) => handleInputChange(e, setPriceFrom)}
+            value={prices.priceFrom}
+            onChange={(e) => handlePriceChange('priceFrom', e.target.value)}
           />
           <span>до</span>
           <Input
@@ -133,8 +162,8 @@ export const Filters: React.FC<Props> = ({ className }) => {
             min={0}
             max={5000}
             placeholder="5000"
-            value={priceTo}
-            onChange={(e) => handleInputChange(e, setPriceTo)}
+            value={prices.priceTo}
+            onChange={(e) => handlePriceChange('priceTo', e.target.value)}
           />
         </div>
       </fieldset>
@@ -168,7 +197,6 @@ export const Filters: React.FC<Props> = ({ className }) => {
       >
         {showMoreIngredients ? 'Скрыть' : 'Раскрыть'}
       </Button>
-      {/* <Button className="mt-7.5">Применить</Button> */}
     </aside>
   );
 };
