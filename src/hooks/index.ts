@@ -1,2 +1,2 @@
-export { useFilters } from './useFilters';
-export { useIngredients } from './useIngredients';
+export { useFilters } from './use-filters';
+export { useIngredients } from './use-ingredients';

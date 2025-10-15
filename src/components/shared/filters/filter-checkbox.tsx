@@ -1,6 +1,6 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { Checkbox, Label } from '../ui';
+import { Checkbox, Label } from '../../ui';
 
 interface Props {
   className?: string;

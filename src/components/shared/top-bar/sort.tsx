@@ -7,7 +7,7 @@ import {
   SelectItem,
   SelectTrigger,
   SelectValue,
-} from '../ui';
+} from '../../ui';
 import { SORT_OPTIONS } from '@/constants';
 
 interface Props {

@@ -1,4 +1,4 @@
-export { CATEGORIES_OPTIONS } from './categoriesOptions';
-export { SORT_OPTIONS } from './sortOptions';
-export { SIZE_OPTIONS } from './sizeOptions';
-export { DOUGH_OPTIONS } from './doughOptions';
+export { CATEGORIES_OPTIONS } from './categories-options';
+export { SORT_OPTIONS } from './sort-options';
+export { SIZE_OPTIONS } from './size-options';
+export { DOUGH_OPTIONS } from './dough-options';

@@ -6,7 +6,7 @@ import { Search } from 'lucide-react';
 import { useClickAway, useDebounce } from 'react-use';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
-import { Api } from '../../../services/api-client';
+import { Api } from '../../services/api-client';
 import { Product } from '../../../generated/prisma';
 
 interface Props {

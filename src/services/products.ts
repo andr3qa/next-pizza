@@ -1,5 +1,5 @@
 import { axiosInstance } from './axios-instance';
-import { Product } from '../generated/prisma';
+import { Product } from '../../generated/prisma';
 import { ApiRoutes } from './api-routes';
 
 export const search = async (query: string): Promise<Product[]> => {

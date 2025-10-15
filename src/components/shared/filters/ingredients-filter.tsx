@@ -2,7 +2,7 @@ import { Button, ScrollArea, Skeleton } from '@/components/ui';
 import { useIngredients } from '@/hooks';
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { FilterCheckbox } from '../FilterCheckbox';
+import { FilterCheckbox } from './filter-checkbox';
 
 interface Props {
   className?: string;

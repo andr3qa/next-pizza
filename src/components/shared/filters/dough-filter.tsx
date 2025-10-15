@@ -1,5 +1,5 @@
 import React from 'react';
-import { FilterCheckbox } from '../FilterCheckbox';
+import { FilterCheckbox } from './filter-checkbox';
 import { cn } from '@/lib/utils';
 import { DOUGH_OPTIONS } from '@/constants';
 

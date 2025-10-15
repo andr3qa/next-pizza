@@ -3,10 +3,7 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { Button } from '../../ui';
-import { DoughFilter } from './DoughFilter';
-import { SizeFilter } from './SizeFilter';
-import { PriceFilter } from './PriceFilter';
-import { IngredientsFilter } from './IngredientsFilter';
+import { DoughFilter, SizeFilter, PriceFilter, IngredientsFilter } from '.';
 import { useFilters } from '@/hooks';
 
 interface Props {

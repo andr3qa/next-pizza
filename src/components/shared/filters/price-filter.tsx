@@ -1,7 +1,7 @@
 import React from 'react';
 import { cn } from '@/lib/utils';
 import { Input } from '@/components/ui';
-import { PriceProps } from '@/hooks/useFilters';
+import { PriceProps } from '@/hooks/use-filters';
 
 interface Props {
   className?: string;

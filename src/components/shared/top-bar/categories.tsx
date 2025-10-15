@@ -1,7 +1,7 @@
 import { CATEGORIES_OPTIONS } from '@/constants';
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { Button } from '../ui';
+import { Button } from '../../ui';
 
 interface Props {
   className?: string;

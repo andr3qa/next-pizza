@@ -1,10 +1,10 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { Container } from './Container';
+import { Container } from './container';
 import Image from 'next/image';
 import { Button } from '../ui';
 import { ShoppingCart, User } from 'lucide-react';
-import { SearchInput } from './SearchInput';
+import { SearchInput } from './search-input';
 import Link from 'next/link';
 
 interface Props {
