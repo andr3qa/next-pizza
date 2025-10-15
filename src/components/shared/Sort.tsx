@@ -8,7 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from '../ui';
-import { sortOptions } from '@/constants/sortOptions';
+import { SORT_OPTIONS } from '@/constants';
 
 interface Props {
   className?: string;
@@ -24,12 +24,12 @@ export const Sort: React.FC<Props> = ({ className }) => {
       <SlidersHorizontal size={12} />
       <span>Сортировка:</span>
 
-      <Select defaultValue={sortOptions[0].name}>
+      <Select defaultValue={SORT_OPTIONS[0].name}>
         <SelectTrigger className="text-primary cursor-pointer border-0 shadow-none [&>svg]:hidden">
           <SelectValue />
         </SelectTrigger>
         <SelectContent>
-          {sortOptions.map((option) => (
+          {SORT_OPTIONS.map((option) => (
             <SelectItem
               key={option.name}
               className="cursor-pointer"

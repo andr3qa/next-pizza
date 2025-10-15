@@ -1,4 +1,4 @@
-export const categoriesOptions = [
+export const CATEGORIES_OPTIONS = [
   'Все',
   'Мясные',
   'Острые',

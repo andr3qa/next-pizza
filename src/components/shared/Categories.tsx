@@ -1,4 +1,4 @@
-import { categoriesOptions } from '@/constants/categoriesOptions';
+import { CATEGORIES_OPTIONS } from '@/constants';
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { Button } from '../ui';
@@ -16,9 +16,11 @@ export const Categories: React.FC<Props> = ({ className }) => {
         className
       )}
     >
-      {categoriesOptions.map((category, index) => (
+      {CATEGORIES_OPTIONS.map((category, index) => (
         <Button
-          onClick={() => setActiveCategory(categoriesOptions.indexOf(category))}
+          onClick={() =>
+            setActiveCategory(CATEGORIES_OPTIONS.indexOf(category))
+          }
           className={activeCategory === index ? 'text-primary shadow' : ''}
           variant={'secondary'}
           key={category}

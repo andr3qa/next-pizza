@@ -1,4 +1,4 @@
-export const sortOptions = [
+export const SORT_OPTIONS = [
   { name: 'популярные', sortProperty: 'rating', order: 'desc' },
   { name: 'непопулярные', sortProperty: 'rating', order: 'asc' },
   { name: 'дорогие', sortProperty: 'price', order: 'desc' },
