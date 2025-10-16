@@ -3,18 +3,25 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { Categories, Sort } from '.';
+import { Container } from '../container';
+import { Category } from '../../../../generated/prisma';
 
 interface Props {
   className?: string;
+  categories: Category[];
 }
-export const TopBar: React.FC<Props> = ({ className }) => {
+export const TopBar: React.FC<Props> = ({ className, categories }) => {
   return (
-    <div className={cn('', className)}>
-      <h1 className="text-4xl font-extrabold text-black">Все пиццы</h1>
-      <div className="mt-5 flex flex-col items-start justify-between gap-5 lg:flex-row">
-        <Categories />
+    <div
+      className={cn(
+        'sticky top-0 z-10 bg-white py-5 shadow-lg shadow-black/5',
+        className
+      )}
+    >
+      <Container className="flex flex-col items-start justify-between gap-5 lg:flex-row">
+        <Categories items={categories} />
         <Sort />
-      </div>
+      </Container>
     </div>
   );
 };

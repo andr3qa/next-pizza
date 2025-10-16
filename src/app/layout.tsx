@@ -23,7 +23,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${nunito.variable} antialiased`}>
         <Header />
-        <main className="py-10">{children}</main>
+        <main className="pb-10">{children}</main>
       </body>
     </html>
   );

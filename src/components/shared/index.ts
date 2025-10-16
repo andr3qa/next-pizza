@@ -1,4 +1,5 @@
 export { Header } from './header';
+export { ProductsGroup } from './products-group';
 export { Container } from './container';
 export { TopBar } from './top-bar';
 export { Filters } from './filters';

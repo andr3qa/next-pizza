@@ -1,13 +1,16 @@
-import { CATEGORIES_OPTIONS } from '@/constants';
+'use client';
+
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { Button } from '../../ui';
+import { useCategoryStore } from '@/store/category';
+import { Category } from '../../../../generated/prisma';
 
 interface Props {
   className?: string;
+  items: Category[];
 }
-export const Categories: React.FC<Props> = ({ className }) => {
-  const [activeCategory, setActiveCategory] = React.useState(0);
+export const Categories: React.FC<Props> = ({ className, items }) => {
+  const activeCategory = useCategoryStore((state) => state.activeID);
 
   return (
     <div
@@ -16,17 +19,17 @@ export const Categories: React.FC<Props> = ({ className }) => {
         className
       )}
     >
-      {CATEGORIES_OPTIONS.map((category, index) => (
-        <Button
-          onClick={() =>
-            setActiveCategory(CATEGORIES_OPTIONS.indexOf(category))
-          }
-          className={activeCategory === index ? 'text-primary shadow' : ''}
-          variant={'secondary'}
-          key={category}
+      {items.map(({ name, id }) => (
+        <a
+          className={cn(
+            'cursor-pointer rounded-xl px-3 py-1',
+            activeCategory === id ? 'text-primary shadow' : ''
+          )}
+          key={id}
+          href={`/#${name}`}
         >
-          {category}
-        </Button>
+          {name}
+        </a>
       ))}
     </div>
   );

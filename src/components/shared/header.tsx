@@ -13,7 +13,7 @@ interface Props {
 
 export const Header: React.FC<Props> = ({ className }) => {
   return (
-    <header className={cn('border-secondary border py-11', className)}>
+    <header className={cn('py-11', className)}>
       <Container className="sm:justify-items-normal grid grid-cols-1 items-center justify-items-center gap-5 sm:grid-cols-2 md:grid-cols-[auto_1fr_auto] md:gap-16">
         <Link href="/" className="flex gap-4">
           <Image

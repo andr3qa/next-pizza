@@ -1,20 +1,43 @@
-import { Container, Filters, Product, TopBar } from '@/components/shared';
+import { Container, Filters, ProductsGroup, TopBar } from '@/components/shared';
+import prisma from '../../prisma/prisma';
 
-export default function Home() {
+export default async function Home() {
+  const categories = await prisma.category.findMany({
+    include: {
+      products: {
+        include: {
+          ingredients: true,
+          productVariant: true,
+        },
+      },
+    },
+  });
+
   return (
-    <Container>
-      <TopBar />
-      <div className="gap-13 mt-9 grid grid-cols-1 items-start md:grid-cols-[auto_1fr]">
-        <Filters />
-        <div className="mt-10 grid grid-cols-1 content-center justify-items-center gap-12 md:grid-cols-2 lg:grid-cols-3">
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
-          <Product />
+    <>
+      <TopBar
+        categories={categories.filter(
+          (category) => category.products.length > 0
+        )}
+      />
+      <Container>
+        <div className="gap-13 mt-9 grid grid-cols-1 items-start md:grid-cols-[auto_1fr]">
+          <Filters />
+          <div className="flex flex-col gap-10">
+            {categories.map(
+              (category) =>
+                category.products.length > 0 && (
+                  <ProductsGroup
+                    key={category.id}
+                    title={category.name}
+                    items={category.products}
+                    categoryId={category.id}
+                  />
+                )
+            )}
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+    </>
   );
 }
