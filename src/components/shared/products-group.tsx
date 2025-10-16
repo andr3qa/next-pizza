@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 import { Product } from '.';
 import { useIntersection } from 'react-use';
-import { useCategoryStore } from '@/store/category';
+import { useSetActiveCategory } from '@/store/use-category-store';
 
 interface Props {
   className?: string;
@@ -18,7 +18,7 @@ export const ProductsGroup: React.FC<Props> = ({
   items,
   categoryId,
 }) => {
-  const setActiveCategoryId = useCategoryStore((state) => state.setActiveID);
+  const setActiveCategoryId = useSetActiveCategory();
   const intersectionRef = React.useRef<HTMLDivElement>(null);
   const intersection = useIntersection(
     intersectionRef as React.RefObject<HTMLElement>,

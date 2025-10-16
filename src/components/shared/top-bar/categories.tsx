@@ -2,7 +2,7 @@
 
 import { cn } from '@/lib/utils';
 import React from 'react';
-import { useCategoryStore } from '@/store/category';
+import { useActiveCategory } from '@/store/use-category-store';
 import { Category } from '../../../../generated/prisma';
 
 interface Props {
@@ -10,7 +10,7 @@ interface Props {
   items: Category[];
 }
 export const Categories: React.FC<Props> = ({ className, items }) => {
-  const activeCategory = useCategoryStore((state) => state.activeID);
+  const activeCategory = useActiveCategory();
 
   return (
     <div
