@@ -11,6 +11,7 @@ export interface ProductProps {
   ingredients: [];
   price: number;
 }
+
 export const Product: React.FC<ProductProps> = ({
   className,
   id,
