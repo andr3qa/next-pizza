@@ -8,13 +8,18 @@ export const metadata: Metadata = {
 
 export default function HomeLayout({
   children,
+  modal,
 }: Readonly<{
   children: React.ReactNode;
+  modal: React.ReactNode;
 }>) {
   return (
     <>
       <Header />
-      <main className="pb-10">{children}</main>
+      <main className="pb-10">
+        {children}
+        {modal}
+      </main>
     </>
   );
 }

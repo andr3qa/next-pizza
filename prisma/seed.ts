@@ -1,9 +1,9 @@
 import { categorySeed } from './seeds/categorySeed';
-import prisma from './prisma';
+import prisma from '../src/lib/prisma';
 import { hashSync } from 'bcrypt';
 import { ingredientsSeed } from './seeds/ingredientsSeed';
 import { productsSeed } from './seeds/productsSeed';
-import { Prisma } from '../generated/prisma';
+import { Prisma } from './generated/prisma';
 
 const randomDecimalNumber = (min: number, max: number) => {
   return Math.floor(Math.random() * (max - min) * 10 + min * 10) / 10;

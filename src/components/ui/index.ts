@@ -3,22 +3,36 @@ export { Input } from './input';
 export { Slider } from './slider';
 export { Checkbox } from './checkbox';
 export { Skeleton } from './skeleton';
-export { Dialog } from './dialog';
 export { Drawer } from './drawer';
-export { Select } from './select';
-export { SelectContent } from './select';
-export { SelectGroup } from './select';
-export { SelectItem } from './select';
-export { SelectLabel } from './select';
-export { SelectScrollDownButton } from './select';
-export { SelectScrollUpButton } from './select';
-export { SelectSeparator } from './select';
-export { SelectTrigger } from './select';
-export { SelectValue } from './select';
-export { Popover } from './popover';
-export { PopoverTrigger } from './popover';
-export { PopoverContent } from './popover';
-export { PopoverAnchor } from './popover';
 export { Label } from './label';
-export { ScrollArea } from './scroll-area';
-export { ScrollBar } from './scroll-area';
+export { ScrollArea, ScrollBar } from './scroll-area';
+export {
+  Dialog,
+  DialogClose,
+  DialogContent,
+  DialogDescription,
+  DialogFooter,
+  DialogHeader,
+  DialogOverlay,
+  DialogPortal,
+  DialogTitle,
+  DialogTrigger,
+} from './dialog';
+export {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectScrollDownButton,
+  SelectScrollUpButton,
+  SelectSeparator,
+  SelectTrigger,
+  SelectValue,
+} from './select';
+export {
+  Popover,
+  PopoverAnchor,
+  PopoverTrigger,
+  PopoverContent,
+} from './popover';

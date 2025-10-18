@@ -1,8 +1,8 @@
 'use client';
 
 import React from 'react';
-import { Ingredient } from '../../generated/prisma';
 import { Api } from '../services/api-client';
+import { Ingredient } from '@/prisma/generated/prisma';
 
 export const useIngredients = () => {
   const [ingredients, setIngredients] = React.useState<Ingredient[]>([]);

@@ -3,7 +3,7 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { useActiveCategory } from '@/store/use-category-store';
-import { Category } from '../../../../generated/prisma';
+import { Category } from '@/prisma/generated/prisma';
 
 interface Props {
   className?: string;

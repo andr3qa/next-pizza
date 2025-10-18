@@ -4,7 +4,7 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 import { Categories, Sort } from '.';
 import { Container } from '../container';
-import { Category } from '../../../../generated/prisma';
+import { Category } from '@/prisma/generated/prisma';
 
 interface Props {
   className?: string;

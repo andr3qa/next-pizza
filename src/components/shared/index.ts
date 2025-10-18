@@ -7,3 +7,4 @@ export { Product } from './product';
 export { NotFound } from './not-found';
 export { Lock } from './lock';
 export { SearchInput } from './search-input';
+export { ProductModalPopup } from './modal';

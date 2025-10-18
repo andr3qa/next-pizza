@@ -1,8 +1,10 @@
+import { cn } from '@/lib/utils';
+import React from 'react';
 import { notFound } from 'next/navigation';
-import { Container } from '@/components/shared';
 import prisma from '@/lib/prisma';
+import { ProductModalPopup } from '@/components/shared';
 
-export default async function ProductPage({
+export default async function ProductModal({
   params,
 }: {
   params: Promise<{ id: string }>;
@@ -14,16 +16,15 @@ export default async function ProductPage({
     where: {
       id: Number(id),
     },
+    include: {
+      ingredients: true,
+      productVariant: true,
+    },
   });
 
   if (!product) {
     return notFound();
   }
 
-  return (
-    <Container>
-      <img src={product.imageUrl} alt={product.name} />
-      <h1>{product.name}</h1>
-    </Container>
-  );
+  return <ProductModalPopup product={product} />;
 }
