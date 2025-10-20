@@ -8,6 +8,7 @@ interface Props {
   selectSize: Set<string>;
   toggleSize: (id: string) => void;
 }
+
 export const SizeFilter: React.FC<Props> = ({
   className,
   selectSize,

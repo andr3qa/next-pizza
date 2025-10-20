@@ -9,6 +9,7 @@ interface Props {
   selectIngredients: Set<string>;
   toggleIngredients: (id: string) => void;
 }
+
 export const IngredientsFilter: React.FC<Props> = ({
   className,
   selectIngredients,

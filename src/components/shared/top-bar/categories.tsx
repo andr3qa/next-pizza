@@ -3,12 +3,13 @@
 import { cn } from '@/lib/utils';
 import React from 'react';
 import { useActiveCategory } from '@/store/use-category-store';
-import { Category } from '@/prisma/generated/prisma';
+import { Category } from '@prisma/client';
 
 interface Props {
   className?: string;
   items: Category[];
 }
+
 export const Categories: React.FC<Props> = ({ className, items }) => {
   const activeCategory = useActiveCategory();
 

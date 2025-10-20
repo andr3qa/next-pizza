@@ -8,6 +8,7 @@ interface Props {
   selectDough: Set<string>;
   toggleDough: (id: string) => void;
 }
+
 export const DoughFilter: React.FC<Props> = ({
   className,
   selectDough,

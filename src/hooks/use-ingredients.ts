@@ -2,7 +2,7 @@
 
 import React from 'react';
 import { Api } from '../services/api-client';
-import { Ingredient } from '@/prisma/generated/prisma';
+import { Ingredient } from '@prisma/client';
 
 export const useIngredients = () => {
   const [ingredients, setIngredients] = React.useState<Ingredient[]>([]);

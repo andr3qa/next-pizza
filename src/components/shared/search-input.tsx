@@ -7,7 +7,7 @@ import { useClickAway, useDebounce } from 'react-use';
 import { cn } from '@/lib/utils';
 import Link from 'next/link';
 import { Api } from '../../services/api-client';
-import { Product } from '@/prisma/generated/prisma';
+import { Product } from '@prisma/client';
 
 interface Props {
   className?: string;

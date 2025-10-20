@@ -9,6 +9,7 @@ import { useFilters } from '@/hooks';
 interface Props {
   className?: string;
 }
+
 export const Filters: React.FC<Props> = ({ className }) => {
   const params = useFilters();
 

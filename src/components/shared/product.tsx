@@ -2,17 +2,18 @@ import { cn } from '@/lib/utils';
 import React from 'react';
 import { Button } from '../ui';
 import Link from 'next/link';
+import { Ingredient } from '@prisma/client';
 
-export interface ProductProps {
+interface Props {
   className?: string;
   id: number;
   imageUrl: string;
   name: string;
-  ingredients: [];
   price: number;
+  ingredients: Ingredient[];
 }
 
-export const Product: React.FC<ProductProps> = ({
+export const Product: React.FC<Props> = ({
   className,
   id,
   imageUrl,

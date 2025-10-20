@@ -13,6 +13,7 @@ import { SORT_OPTIONS } from '@/constants';
 interface Props {
   className?: string;
 }
+
 export const Sort: React.FC<Props> = ({ className }) => {
   return (
     <div

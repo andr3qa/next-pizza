@@ -10,6 +10,7 @@ interface Props {
   checked?: boolean;
   onCheckedChange?: (checked: boolean) => void;
 }
+
 export const FilterCheckbox: React.FC<Props> = ({
   id,
   name,

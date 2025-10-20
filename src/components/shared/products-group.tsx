@@ -5,13 +5,15 @@ import React from 'react';
 import { Product } from '.';
 import { useIntersection } from 'react-use';
 import { useSetActiveCategory } from '@/store/use-category-store';
+import { ProductItem } from '@/types/ui';
 
 interface Props {
   className?: string;
   title: string;
-  items: any[];
   categoryId: number;
+  items: ProductItem[];
 }
+
 export const ProductsGroup: React.FC<Props> = ({
   className,
   title,
@@ -26,6 +28,8 @@ export const ProductsGroup: React.FC<Props> = ({
       threshold: 0.25,
     }
   );
+
+  console.log(items);
 
   React.useEffect(() => {
     if (intersection?.isIntersecting) {

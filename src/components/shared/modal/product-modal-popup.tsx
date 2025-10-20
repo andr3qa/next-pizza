@@ -2,17 +2,17 @@
 
 import { Dialog, DialogContent, DialogTitle } from '@/components/ui';
 import { cn } from '@/lib/utils';
-import { Product } from '@/prisma/generated/prisma';
+import { ProductItem } from '@/types/ui';
 import { useRouter } from 'next/navigation';
 import React from 'react';
 
 interface Props {
   className?: string;
-  product: Product;
+  product: ProductItem;
 }
+
 export const ProductModalPopup: React.FC<Props> = ({ className, product }) => {
   const router = useRouter();
-  console.log(product);
 
   return (
     <Dialog open={Boolean(product)} onOpenChange={() => router.back()}>

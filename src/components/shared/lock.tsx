@@ -8,6 +8,7 @@ import { Button } from '../ui';
 interface Props {
   className?: string;
 }
+
 export const Lock: React.FC<Props> = ({ className }) => {
   return (
     <div
